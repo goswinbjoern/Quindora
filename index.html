@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quindora – Vorschau | Quadratewürfel Games</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #222222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+    }
+    main img {
+      max-width: 100%;
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 13px;
+      color: #777777;
+    }
+    footer button {
+      background: none;
+      border: none;
+      color: #777777;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 13px;
+      font-family: inherit;
+    }
+    footer button:hover {
+      color: #111111;
+    }
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-box {
+      background: #ffffff;
+      max-width: 480px;
+      width: 100%;
+      padding: 28px 32px;
+      border-radius: 10px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      position: relative;
+      line-height: 1.6;
+      font-size: 15px;
+      text-align: left;
+    }
+    .modal-box h2 {
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+    .modal-box p {
+      margin-bottom: 12px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #666666;
+    }
+    .close-btn:hover {
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <img src="vorschau.jpg" alt="Quindora Vorschau">
+  </main>
+
+  <footer>
+    <button type="button" onclick="document.getElementById('impressumModal').classList.add('active')">Impressum</button>
+  </footer>
+
+  <div class="modal-overlay" id="impressumModal" onclick="if(event.target === this) this.classList.remove('active')">
+    <div class="modal-box">
+      <button type="button" class="close-btn" aria-label="Schließen" onclick="document.getElementById('impressumModal').classList.remove('active')">×</button>
+      <h2>Impressum</h2>
+      <p>
+        <strong>Angaben gemäß § 5 DDG:</strong><br>
+        Quadratewürfel Games<br>
+        Inh. Björn Goswin<br>
+        Freiheitsplatz 6<br>
+        68199 Mannheim
+      </p>
+      <p>
+        <strong>Kontakt:</strong><br>
+        E-Mail: b.goswin@outlook.de
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
