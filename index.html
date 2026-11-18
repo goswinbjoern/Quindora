@@ -130,13 +130,19 @@
   </div>
 
   <script>
-    function checkImpressumHash() {
-      if (window.location.hash === '#impressum') {
-        document.getElementById('impressumModal').classList.add('active');
+    function openImpressumIfNeeded() {
+      if (window.location.hash === '#impressum' || window.location.href.includes('#impressum')) {
+        const modal = document.getElementById('impressumModal');
+        if (modal) {
+          modal.classList.add('active');
+        }
       }
     }
-    window.addEventListener('DOMContentLoaded', checkImpressumHash);
-    window.addEventListener('hashchange', checkImpressumHash);
+    // Direkt beim Laden und bei Hash-Änderungen ausführen
+    window.addEventListener('DOMContentLoaded', openImpressumIfNeeded);
+    window.addEventListener('load', openImpressumIfNeeded);
+    // Zur Sicherheit nach 200 Millisekunden noch einmal triggern
+    setTimeout(openImpressumIfNeeded, 200);
   </script>
 
 </body>
