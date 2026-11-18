@@ -103,7 +103,7 @@
 </head>
 <body>
 
-  <main>
+<main>
     <img src="vorschau.jpg" alt="Quindora Vorschau">
   </main>
 
@@ -128,6 +128,16 @@
       </p>
     </div>
   </div>
+
+  <script>
+    function checkImpressumHash() {
+      if (window.location.hash === '#impressum') {
+        document.getElementById('impressumModal').classList.add('active');
+      }
+    }
+    window.addEventListener('DOMContentLoaded', checkImpressumHash);
+    window.addEventListener('hashchange', checkImpressumHash);
+  </script>
 
 </body>
 </html>
