@@ -1,1 +1,398 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spielregeln – Die Magische Akademie von Quindora | Quadratwürfel Games</title>
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --surface: #ffffff;
+      --text: #1f1e1c;
+      --muted: #66625c;
+      --border: #e3dfd7;
+      --accent: #3b2f63;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header#top {
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 20px;
+      text-align: center;
+    }
+
+    .header-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: clamp(20px, 3.2vw, 28px);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .quick-nav a {
+      font-size: 12px;
+      text-decoration: none;
+      color: var(--accent);
+      background-color: #f0edf7;
+      padding: 4px 9px;
+      border-radius: 999px;
+      transition: background-color 0.15s ease;
+    }
+
+    .quick-nav a:hover {
+      background-color: #e2dcf2;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .rule-page {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .page-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      padding: 0 4px;
+    }
+
+    .page-meta a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .page-meta a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .rule-page img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      cursor: zoom-in;
+    }
+
+    .rule-page.zoomed {
+      max-width: none;
+    }
+
+    .rule-page.zoomed img {
+      cursor: zoom-out;
+    }
+
+    .to-top-floating {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background-color: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+      z-index: 900;
+    }
+
+    .to-top-floating:hover {
+      opacity: 0.92;
+    }
+
+    footer {
+      background-color: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 18px 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    @media print {
+      .back-link,
+      .quick-nav,
+      .page-meta a,
+      .to-top-floating,
+      footer {
+        display: none !important;
+      }
+
+      body {
+        background-color: #ffffff;
+      }
+
+      main {
+        max-width: 100%;
+        padding: 0;
+        gap: 0;
+      }
+
+      .rule-page {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="top">
+    <div class="header-inner">
+      <a class="back-link" href="../">← Zurück zu Quindora</a>
+      <h1>Spielregeln – Die Magische Akademie von Quindora</h1>
+      <p class="subtitle">Durchscrollbare Anleitung (16 Seiten) · Quadratwürfel Games</p>
+      <nav class="quick-nav" aria-label="Schnellzugriff Seiten">
+        <a href="#seite-1">S. 1</a>
+        <a href="#seite-2">S. 2</a>
+        <a href="#seite-3">S. 3</a>
+        <a href="#seite-4">S. 4</a>
+        <a href="#seite-5">S. 5</a>
+        <a href="#seite-6">S. 6</a>
+        <a href="#seite-7">S. 7</a>
+        <a href="#seite-8">S. 8</a>
+        <a href="#seite-9">S. 9</a>
+        <a href="#seite-10">S. 10</a>
+        <a href="#seite-11">S. 11</a>
+        <a href="#seite-12">S. 12</a>
+        <a href="#seite-13">S. 13</a>
+        <a href="#seite-14">S. 14</a>
+        <a href="#seite-15">S. 15</a>
+        <a href="#seite-16">S. 16</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <figure class="rule-page" id="seite-1">
+      <div class="page-meta">
+        <span>Seite 1</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 1" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-2">
+      <div class="page-meta">
+        <span>Seite 2</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu2.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 2" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-3">
+      <div class="page-meta">
+        <span>Seite 3</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu3.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 3" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-4">
+      <div class="page-meta">
+        <span>Seite 4</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu4.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 4" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-5">
+      <div class="page-meta">
+        <span>Seite 5</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu5.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 5" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-6">
+      <div class="page-meta">
+        <span>Seite 6</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu6.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 6" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-7">
+      <div class="page-meta">
+        <span>Seite 7</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu7.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 7" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-8">
+      <div class="page-meta">
+        <span>Seite 8</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu8.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 8" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-9">
+      <div class="page-meta">
+        <span>Seite 9</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu9.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 9" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-10">
+      <div class="page-meta">
+        <span>Seite 10</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu10.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 10" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-11">
+      <div class="page-meta">
+        <span>Seite 11</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu11.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 11" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-12">
+      <div class="page-meta">
+        <span>Seite 12</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu12.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 12" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-13">
+      <div class="page-meta">
+        <span>Seite 13</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu13.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 13" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-14">
+      <div class="page-meta">
+        <span>Seite 14</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu14.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 14" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-15">
+      <div class="page-meta">
+        <span>Seite 15</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu15.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 15" loading="lazy">
+    </figure>
+
+    <figure class="rule-page" id="seite-16">
+      <div class="page-meta">
+        <span>Seite 16</span>
+        <a href="#top">Nach oben</a>
+      </div>
+      <img src="Quindora-%20Anleitung%20neu16.jpg" alt="Die Magische Akademie von Quindora – Spielanleitung Seite 16" loading="lazy">
+    </figure>
+  </main>
+
+  <a class="to-top-floating" href="#top" aria-label="Nach oben scrollen">↑ Oben</a>
+
+  <footer>
+    Quadratwürfel Games · Inh. Björn Goswin · <a href="../">Impressum &amp; Kontakt</a>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.rule-page img').forEach(function (img) {
+      img.addEventListener('click', function () {
+        const card = img.closest('.rule-page');
+        const mainEl = document.querySelector('main');
+        const isZoomed = card.classList.toggle('zoomed');
+        if (isZoomed) {
+          mainEl.style.maxWidth = '1140px';
+        } else {
+          const anyZoomed = document.querySelector('.rule-page.zoomed');
+          mainEl.style.maxWidth = anyZoomed ? '1140px' : '820px';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
